@@ -3,4 +3,4 @@
 
 git add . 
 git commit -m"nội dung commit"
-git púh -u origin (tên nhánh)
+git push -u origin develop (tên nhánh)
