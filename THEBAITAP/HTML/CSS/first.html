@@ -14,15 +14,18 @@
   <div class="login-page">
     <div class="form">
       <form class="register-form">
-        <input type="text" placeholder="name" id="username"/>
+        <input type="text" placeholder="username" id="username"/>
+        <input type="text" placeholder="email" id="email"/>
         <input type="password" placeholder="password" id="password"/>
         <input class="rgstr_btn" type="submit" value="Create" onClick="store()" style=" background-color: #4CAF50; cursor:pointer;"/> 
+        <p id="notification"></p>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form>
       <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="username or email" id="username1"/>
+        <input type="password" placeholder="password" id="password1"/>
         <input class="rgstr_btn" type="submit" value="Login" onClick="check()" style=" background-color: #4CAF50; cursor:pointer;"/> 
+        <p id="notificationlogin"></p>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
     </div>
