@@ -4,40 +4,43 @@ $(".message a").click(function () {
 
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
-const email = document.querySelector('#email')
+const email = document.querySelector('#email');
+const rpw = document.querySelector('#retype')
+const noti = document.querySelector('#notification')
+const notilogin = document.querySelector('#notificationlogin')
 
+const tbaothanhcong = `<p style="color: green;" >logup successfully!</p>`
+const tbaoloi = `<p style="color: red;" >logup failed!</p>`
 
 function store() {
-  event.preventDefault()
-  if(email.value.length >= 6 && email.value.includes("@") && username.value.length >= 6 && password.value.length >=6 && username.value != password.value )  { 
+  if(rpw.value = password.value && email.value.length >= 6 && email.value.includes("@") && username.value.length >= 6 && password.value.length >=6 && username.value != password.value )  { 
     localStorage.setItem('e', JSON.stringify(email.value));
     localStorage.setItem('us', JSON.stringify(username.value));
     localStorage.setItem('pw', JSON.stringify(password.value));
     console.log(localStorage);
-    alert('LOGUP SUCCESSFULLY')
+    noti.innerHTML = tbaothanhcong
  }
 else{
-  alert('ERROR')
+  noti.innerHTML = tbaoloi
 }
 }
 
+const tbaothanhcong1 = `<p style="color: green;" >login successfully!</p>`
+const tbaoloi1 = `<p style="color: red;" >login failed!</p>`
 
 function check() {
 
-  // stored data from the register-form
   const storedE = JSON.parse(localStorage.getItem('e'));
   const storedName = JSON.parse(localStorage.getItem('us'));
   const storedPw = JSON.parse(localStorage.getItem('pw'));
 
-  // entered data from the login-form
   const userName = document.getElementById('username1');
   const userPw = document.getElementById('password1');
 
-  // check if stored data from register-form is equal to data from login form
   if(userName.value == storedName || userName.value == storedE && userPw.value == storedPw) {
     window.location.href="start.html"
-    alert('You are loged in.');
+    notilogin.innerHTML = tbaothanhcong1
 }else {
-    alert('ERROR.');
+    notilogin.innerHTML = tbaoloi1
 }
 }
