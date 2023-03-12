@@ -1,5 +1,6 @@
-const myTimeout = setTimeout(myGreeting, 5000);
+const myTimeout = setTimeout(chuyenDi, 5000);
 
-function myGreeting() {
+function chuyenDi() {
     window.location.assign('first.html')
 }
+

@@ -12,20 +12,26 @@ const notilogin = document.querySelector('#notificationlogin')
 const tbaothanhcong = `<p style="color: green;" >logup successfully!</p>`
 const tbaoloi = `<p style="color: red;" >logup failed!</p>`
 
+const regUs = /[^a-z0-9]/igm
+const regPw = /[^a-z0-9]/igm
+const regEm = /[^a-z0-9@.]/igm
+
 function store() {
-  if(rpw.value = password.value && email.value.length >= 6 && email.value.includes("@") && username.value.length >= 6 && password.value.length >=6 && username.value != password.value )  { 
+  if(rpw.value = password.value && email.value.length >= 6 && email.value.includes("@") && username.value.length >= 6 && password.value.length >=6 && username.value != password.value
+      && rpw.value.length >=6 && regUs.test(username.value) == false && regPw.test(password.value) == false && regEm.test(email.value) == false)  { 
+    event.preventDefault();
     localStorage.setItem('e', JSON.stringify(email.value));
     localStorage.setItem('us', JSON.stringify(username.value));
     localStorage.setItem('pw', JSON.stringify(password.value));
     console.log(localStorage);
     noti.innerHTML = tbaothanhcong
  }
-else{
-  noti.innerHTML = tbaoloi
-}
-}
+  else{
+    noti.innerHTML = tbaoloi
+  }
+  }
 
-const tbaothanhcong1 = `<p style="color: green;" >login successfully!</p>`
+
 const tbaoloi1 = `<p style="color: red;" >login failed!</p>`
 
 function check() {
@@ -34,13 +40,15 @@ function check() {
   const storedName = JSON.parse(localStorage.getItem('us'));
   const storedPw = JSON.parse(localStorage.getItem('pw'));
 
-  const userName = document.getElementById('username1');
-  const userPw = document.getElementById('password1');
+  const userName = document.querySelector('#username1');
+  const userPw = document.querySelector('#password1');
 
-  if(userName.value == storedName || userName.value == storedE && userPw.value == storedPw) {
+  const valueName = userName.value
+  const valuePw = userPw.value
+
+  if(valuePw == storedPw && valueName == storedName || valueName.value == storedE)  {
     window.location.href="start.html"
-    notilogin.innerHTML = tbaothanhcong1
-}else {
+  }else {
     notilogin.innerHTML = tbaoloi1
-}
+  }
 }
