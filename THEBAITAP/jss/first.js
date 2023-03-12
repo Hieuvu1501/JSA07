@@ -19,14 +19,13 @@ const regEm = /[^a-z0-9@.]/igm
 function store() {
   if(rpw.value = password.value && email.value.length >= 6 && email.value.includes("@") && username.value.length >= 6 && password.value.length >=6 && username.value != password.value
       && rpw.value.length >=6 && regUs.test(username.value) == false && regPw.test(password.value) == false && regEm.test(email.value) == false)  { 
-    event.preventDefault();
-    localStorage.setItem('e', JSON.stringify(email.value));
-    localStorage.setItem('us', JSON.stringify(username.value));
-    localStorage.setItem('pw', JSON.stringify(password.value));
+    localStorage.setItem('e', email.value);
+    localStorage.setItem('us', username.value);
+    localStorage.setItem('pw', password.value);
     console.log(localStorage);
     noti.innerHTML = tbaothanhcong
  }
-  else{
+  else{2
     noti.innerHTML = tbaoloi
   }
   }
@@ -36,9 +35,10 @@ const tbaoloi1 = `<p style="color: red;" >login failed!</p>`
 
 function check() {
 
-  const storedE = JSON.parse(localStorage.getItem('e'));
-  const storedName = JSON.parse(localStorage.getItem('us'));
-  const storedPw = JSON.parse(localStorage.getItem('pw'));
+  event.preventDefault()
+  const storedE = localStorage.getItem('e');
+  const storedName = localStorage.getItem('us');
+  const storedPw = localStorage.getItem('pw');
 
   const userName = document.querySelector('#username1');
   const userPw = document.querySelector('#password1');
@@ -47,8 +47,8 @@ function check() {
   const valuePw = userPw.value
 
   if(valuePw == storedPw && valueName == storedName || valueName.value == storedE)  {
-    window.location.href="start.html"
+    window.location.assign("start.html")
   }else {
-    notilogin.innerHTML = tbaoloi1
+    notilogin.innerHTML = tbaoloi1;
   }
 }
