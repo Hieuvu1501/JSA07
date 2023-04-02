@@ -42,11 +42,15 @@ function check() {
 
   const userName = document.querySelector('#username1');
   const userPw = document.querySelector('#password1');
+  const userE = document.querySelector('#username1');
 
   const valueName = userName.value
   const valuePw = userPw.value
+  const valueE = userE.value
+  
+  console.log(storedE);
 
-  if(valuePw == storedPw && valueName == storedName || valueName.value == storedE)  {
+  if(valuePw == storedPw && valueName == storedName || valueE == storedE)  {
     window.location.assign("start.html")
   }else {
     notilogin.innerHTML = tbaoloi1;

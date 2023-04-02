@@ -1,0 +1,27 @@
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+  
+h1{
+  font-family: "arial";    
+  font-size: 70px;
+  font-weight: 700;
+  text-align: left;
+ }   
+    
+p {
+   font-family: "arial";
+   font-weight: 300;
+  }
+    
